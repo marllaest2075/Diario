@@ -1,3 +1,5 @@
 mongodb+srv://Martin:Laem750220rda@base.1nuzm.mongodb.net/Mantenimiento?retryWrites=true&w=majority
 
 "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDRlMWUwNmU2OGFlYTIyMjBlZTVhMjQiLCJpYXQiOjE2MTU3MzIyOTIsImV4cCI6MTY0NzI2ODI5Mn0.YHazXqQ8I2Vq5Dn3FW8lq0AXypJLHMVo95cssqZGoP0"
+
+MONGO_URI="mongodb+srv://Martin:Laem750220rda@base.1nuzm.mongodb.net/Mantenimiento?retryWrites=true&w=majority
