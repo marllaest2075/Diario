@@ -68,7 +68,7 @@ function me(req,res) {
 
 
 router.get('/',autentication.isAuthenticated,autentication.hasRoles(['admin']), getAll)
-router.post('/register',autentication.isAuthenticated,autentication.hasRoles(['admin']),Registrar)
+router.post('/register', Registrar)
 router.post('/login',acceder)
 router.get('/me',autentication.isAuthenticated,me)
 
