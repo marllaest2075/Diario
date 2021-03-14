@@ -3,6 +3,7 @@ const router = express.Router()
 const Users = require('../Models/Users')
 const jwt = require('jsonwebtoken')
 const crypto = require('crypto')
+const autentication = require('../auth')
 
 const signToken = (_id) =>{
     return jwt.sign({_id},'mi-secreto',{expiresIn: 60 * 60 * 24 * 365 , })
@@ -60,9 +61,16 @@ function acceder (req, res)  {
         })
 }
 
-router.get('/', getAll)
-router.post('/register',Registrar)
+function me(req,res) {
+    res.send(req.user.email)
+}
+
+
+
+router.get('/',autentication.isAuthenticated,autentication.hasRoles(['admin']), getAll)
+router.post('/register',autentication.isAuthenticated,autentication.hasRoles(['admin']),Registrar)
 router.post('/login',acceder)
+router.get('/me',autentication.isAuthenticated,me)
 
 
 module.exports = router
