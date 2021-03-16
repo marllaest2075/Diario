@@ -62,7 +62,8 @@ function acceder (req, res)  {
 }
 
 function me(req,res) {
-    res.send(req.user.email)
+    const {_id, email} = req.user
+    res.send({_id, email})
 }
 
 
