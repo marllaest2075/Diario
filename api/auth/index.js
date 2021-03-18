@@ -7,14 +7,16 @@ function isAuthenticated(req,res,next) {
         return res.sendStatus(403)
     }
     jwt.verify(token,'mi-secreto',(err,decoded)=>{
-        const { _id } = decoded
+        const { _id, iat } = decoded
         Users.findOne({_id}).exec()
         .then(user=>{
             req.user = user
+            req.iat = iat
             next()
         })
     })
 }
+
 
 const hasRoles = roles =>(req,res,next)=>{
     if(roles.indexOf(req.user.role) > -1){
